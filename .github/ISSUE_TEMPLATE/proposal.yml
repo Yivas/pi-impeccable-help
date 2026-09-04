@@ -1,0 +1,29 @@
+name: Proposal or documentation correction
+description: Suggest a focused improvement to the help panel or its guidance.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep examples synthetic and remove private information. Help-only behavior is a product boundary, not a missing execution feature.
+        Report security defects through [private reporting](https://github.com/Yivas/pi-impeccable-help/security/advisories/new).
+  - type: textarea
+    id: need
+    attributes:
+      label: Task or incorrect guidance
+      description: What are you trying to understand or do? For catalog corrections, include the official reference and version.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change and alternatives
+      description: Explain the smallest change that would help and any compatibility concerns.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues and removed sensitive information.
+          required: true

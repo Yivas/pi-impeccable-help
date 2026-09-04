@@ -1,0 +1,46 @@
+name: Bug report
+description: Report a reproducible problem with the help panel.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use synthetic text only. Remove tokens, drafts, prompts, personal paths, session IDs, and private configuration.
+        For suspected vulnerabilities, use [private reporting](https://github.com/Yivas/pi-impeccable-help/security/advisories/new).
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Source commit, Pi version, Node version, operating system, and terminal application.
+    validations:
+      required: true
+  - type: input
+    id: terminal
+    attributes:
+      label: Terminal size and bindings
+      description: Columns × rows and only the custom keybindings relevant to the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Steps using synthetic search text or draft content.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Before submitting
+      options:
+        - label: I searched existing issues.
+          required: true
+        - label: I checked the documented compatibility baseline and included my actual versions.
+          required: true
+        - label: I removed sensitive information from this report and any attachments.
+          required: true
