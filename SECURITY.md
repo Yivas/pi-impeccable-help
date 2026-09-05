@@ -4,10 +4,11 @@
 
 | Line | Status |
 |---|---|
+| 0.1.x | Supported |
 | Current `main` | Maintained development source |
 | Older source snapshots | No separate maintenance commitment |
 
-No numbered releases have been published. Compatibility is currently tested against Pi 0.85.0.
+Compatibility is currently tested against Pi 0.85.0. Include the package version or source commit in reports.
 
 ## Scope
 

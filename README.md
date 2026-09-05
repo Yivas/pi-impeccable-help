@@ -2,9 +2,9 @@
 
 Browse Impeccable guidance inside Pi, then prepare a command in the editor **without sending it**.
 
-Unreleased source for Pi 0.85.0. No npm release.
+Version 0.1.0 · Pi 0.85.0 · MIT
 
-[Usage](#usage) · [Installation](#installation) · [Contributing](CONTRIBUTING.md) · [Security](SECURITY.md)
+[Usage](#usage) · [Installation](#installation) · [Releases](https://github.com/Yivas/pi-impeccable-help/releases) · [Contributing](https://github.com/Yivas/pi-impeccable-help/blob/main/CONTRIBUTING.md) · [Security](https://github.com/Yivas/pi-impeccable-help/blob/main/SECURITY.md)
 
 This is a local terminal help panel, not a prompt template. Opening help, searching, and reading examples do not contact a model. The panel does not run Impeccable or install it for you.
 
@@ -17,21 +17,23 @@ This is a local terminal help panel, not a prompt template. Opening help, search
 
 ## Status and compatibility
 
-Unreleased source, tested against Pi **0.85.0** and Node **24.9.0**. Package metadata `0.0.0` is a development marker, not a published release. Node 22.19 or newer is required. There is no npm release.
+Version **0.1.0** targets Pi **0.85.0** and Node **22.19 or newer**. Checks cover Node 22.19 and 24 on Linux, plus Node 24 on Windows. See [changes](https://github.com/Yivas/pi-impeccable-help/blob/main/CHANGELOG.md) and [release artifacts](https://github.com/Yivas/pi-impeccable-help/releases).
 
 The panel requires Pi's interactive TUI. RPC, print, and JSON modes do not open it. Its reference catalog was checked against **Impeccable skill 4.2.0**; the loaded skill's instructions remain authoritative. Detecting a loaded skill does not verify its version.
 
 ## Installation
 
-Install [Pi](https://github.com/earendil-works/pi-mono/tree/main/packages/coding-agent) first. To install this extension from source:
+Install [Pi](https://github.com/earendil-works/pi-mono/tree/main/packages/coding-agent) first. From a terminal:
 
 ```sh
-git clone https://github.com/Yivas/pi-impeccable-help.git
-cd pi-impeccable-help
-pi install .
+pi install npm:pi-impeccable-help
 ```
 
-`pi install .` registers the local directory in user settings; keep the checkout in place. In an existing Pi session, run `/reload`. No build is required. Pi provides the TUI runtime dependency.
+In an existing Pi session, run `/reload`, then `/impeccable-help`. No build is required. Pi provides the TUI runtime dependency. This installs in user scope; use Pi's `-l` option only if you want a project-local installation.
+
+To pin this version instead, use `pi install npm:pi-impeccable-help@0.1.0`. Pinned packages do not advance during normal package updates.
+
+For development, clone this repository and run `pi install .` from its root. That registers the checkout without copying it, so keep the directory in place. Before switching between a checkout and npm, unregister the old source to avoid loading the command twice.
 
 [Impeccable](https://impeccable.style/) is a separate skill, installed according to its own instructions. This extension neither bundles nor automatically downloads it. If you previously created a prompt template named `impeccable-help.md`, remove or rename that template to avoid confusion with this command.
 
@@ -62,9 +64,23 @@ If the editor already contains a draft, you can cancel or confirm replacement. I
 
 ## Updating and removing
 
-To update a source checkout, review its changes, then pull them and run `/reload` in Pi. To unregister it, run `pi remove .` from the same checkout, then `/reload`. Remove the checkout only after unregistering it. This does not uninstall Impeccable.
+Read the release notes before updating. For an unpinned npm installation:
 
-If the command is missing, check `pi list` and whether the checkout still exists, then reload. If help says the skill is not loaded, check that Impeccable is installed and skill commands are enabled in that session. Do not infer a skill installation from the presence of this help panel.
+```sh
+pi update npm:pi-impeccable-help
+```
+
+To remove it:
+
+```sh
+pi remove npm:pi-impeccable-help
+```
+
+Run `/reload` afterward. To select or return to a specific version, install its exact npm spec, such as `pi install npm:pi-impeccable-help@0.1.0`; pinning disables normal package updates. None of these commands uninstalls Impeccable itself.
+
+For a source checkout, pull reviewed changes to update, or run `pi remove .` from that checkout to unregister it. Remove the directory only after unregistering it.
+
+If the command is missing, check `pi list` and that its package source is still available, then reload. If help says the skill is not loaded, check that Impeccable is installed and skill commands are enabled in that session. Do not infer a skill installation from the presence of this help panel.
 
 ## Privacy and limits
 
@@ -79,6 +95,6 @@ npm ci --ignore-scripts
 npm test
 ```
 
-Tests exercise the actual TUI components and a command-handler harness; no model account is required. See [CONTRIBUTING.md](CONTRIBUTING.md) for scope and checks.
+Tests exercise the actual TUI components and a command-handler harness; no model account is required. See [CONTRIBUTING.md](https://github.com/Yivas/pi-impeccable-help/blob/main/CONTRIBUTING.md) for scope and checks.
 
-This project is **collaborative open source under MIT**. Issues and pull requests are welcome. Report vulnerabilities through the private channel described in [SECURITY.md](SECURITY.md), not through public issues. The catalog descriptions and examples are original text. Impeccable is a separate Apache-2.0 project; this package does not redistribute its skill or engine.
+This project is **collaborative open source under MIT**. Issues and pull requests are welcome. Report vulnerabilities through the private channel described in [SECURITY.md](https://github.com/Yivas/pi-impeccable-help/blob/main/SECURITY.md), not through public issues. The catalog descriptions and examples are original text. Impeccable is a separate Apache-2.0 project; this package does not redistribute its skill or engine.
