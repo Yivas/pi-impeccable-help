@@ -1,7 +1,7 @@
 {
   "name": "pi-impeccable-help",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.1.0",
+  "publishConfig": { "access": "public", "registry": "https://registry.npmjs.org/" },
   "description": "Browse Impeccable guidance inside Pi and prepare commands without sending a message.",
   "type": "module",
   "license": "MIT",
@@ -11,7 +11,7 @@
   "bugs": { "url": "https://github.com/Yivas/pi-impeccable-help/issues" },
   "keywords": ["pi-package", "pi-extension", "impeccable", "terminal", "help"],
   "engines": { "node": ">=22.19.0" },
-  "files": ["src/", "README.md", "LICENSE"],
+  "files": ["src/", "README.md", "LICENSE", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "CODE_OF_CONDUCT.md"],
   "pi": { "extensions": ["src/index.js"] },
   "peerDependencies": { "@earendil-works/pi-tui": "*" },
   "peerDependenciesMeta": { "@earendil-works/pi-tui": { "optional": true } },
